@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Özel Giriş</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #fff5f8, #f8f3ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      color: #2b1d25;
+    }
+
+    .box {
+      width: min(420px, calc(100% - 32px));
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 24px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 2rem;
+    }
+
+    p {
+      color: #6d5a66;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 14px;
+      outline: none;
+      box-sizing: border-box;
+      margin-bottom: 14px;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px 16px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #d86c9b, #8f5cff);
+      color: white;
+      cursor: pointer;
+    }
+
+    .error {
+      margin-top: 14px;
+      color: #c03a5b;
+      font-size: 0.95rem;
+      min-height: 20px;
+    }
+
+    .hint {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      color: #8a7481;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Özel Giriş</h1>
+    <p>
+      Buraya girmek için bizim tarihimizi doğru yazman gerekiyor.
+    </p>
+
+    <input id="password" type="password" placeholder="Tarihi gir" />
+    <button onclick="checkPassword()">Giriş Yap</button>
+
+    <div class="error" id="error"></div>
+    <div class="hint"></div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const correctPassword = "160425"; // BURAYI KENDİ TARİHİNLE DEĞİŞTİR
+      const input = document.getElementById("password").value.trim();
+      const error = document.getElementById("error");
+
+      if (input === correctPassword) {
+        window.location.href = "love.html";
+      } else {
+        error.textContent = "Tarih yanlış. Bir daha dene.";
+      }
+    }
+
+    document.getElementById("password").addEventListener("keydown", function(e) {
+      if (e.key === "Enter") {
+        checkPassword();
+      }
+    });
+  </script>
+</body>
+</html>
